@@ -12,5 +12,6 @@ ask();
 
 
 process.stdin.on('data',data => {
-    process.stdout.write(data.toString().trim());
+    process.stdout.write("\n\n"+data.toString().trim()+">\n\n");
+    process.exit();
 });
