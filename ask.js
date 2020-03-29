@@ -13,23 +13,24 @@ const questions = [
 ];
 
 
-collectionQuestion = (questions , done ) => {
+collectQuestion = (questions , done ) => {
     const answers = [];
     const [firstQuestion] = questions;
 
     const questionAnswered = answer => {
         answers.push(answer);
         if(answers.length < questions.length){
-            rl.question(questions[answers.length], questionAnswered)
+            rl.question(questions[answers.length], questionAnswered) // Recusive callback
         }else{
             done(answers);
         }
     }  
 
-    rl.question(firstQuestion, questionAnswered);
+    rl.question(firstQuestion, questionAnswered); // Recusive callback
 };
 
-collectionQuestion(questions , answers => {
+// ansers is arg of a call back
+collectQuestion(questions , answers => {
     console.log("Thank for your question");
     console.log(answers);
     process.exit();
